@@ -7,9 +7,10 @@
 <html>
 <head>
 	<title>Spring 3 MVC Series - Contact Manager</title>
+<link rel="stylesheet" type="text/css" media="all" href="<%= request.getContextPath() %>/wro/all.css"/>
 </head>
 <body>
-
+<script type="text/javascript" src="<%=request.getContextPath() %>/wro/all.js"></script>
 
 
 <form:form method="post" action="addContact.html">
@@ -48,9 +49,12 @@
         <fmt:setLocale value="ja_JP"/>
         <fmt:formatNumber currencyCode="JPY" value="4433122199.69090"/>
         <br>
-        JPY: <fmt:formatNumber pattern="####,####;(####,####.##)" value="0.00" minFractionDigits="2"/>
+        JPY: <fmt:formatNumber pattern="###,###.##;(###,###.##)" value="-0.00001" minFractionDigits="2"/>
         <br>
         <c:out value="${fn:substring(date, 1, -1)}" />
+    
         <fmt:formatNumber value="${fn:substring(date, 0, 2)}" minFractionDigits="${minFractionDigits}"/>
+        <br>
+            <c:out value="${fn:toLowerCase(name)}" />
 </body>
 </html>

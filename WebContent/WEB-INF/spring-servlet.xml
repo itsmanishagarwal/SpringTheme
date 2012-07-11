@@ -8,10 +8,11 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-
-	<context:component-scan
+ 	<context:component-scan
 		base-package="net.spring3.controller" />
-
+	<bean id="userService" class="net.spring3.services.impl.UserServiceImpl">
+  <property name="source" value="servlet"></property>
+ </bean>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass">
